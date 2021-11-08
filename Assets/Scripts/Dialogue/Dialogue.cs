@@ -5,14 +5,25 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textDisplay;
+    public GameObject textDisplayPanel;
     public string[] sentences;
     private int index;
     public float typingSpeed;
 
     public TextMeshProUGUI continuePrompt;
+    public GameObject continuePromptPanel;
+    public AudioClip voice;
+    public GameObject player;
+
+    public bool hasRead = false;
 
     private void Start()
     {
+    }
+
+    public void StartDialog()
+    {
+        textDisplayPanel.SetActive(true);
         StartCoroutine(Type());
     }
 
@@ -21,6 +32,7 @@ public class Dialogue : MonoBehaviour
         if (textDisplay.text == sentences[index])
         {
             continuePrompt.enabled = true;
+            continuePromptPanel.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -33,6 +45,7 @@ public class Dialogue : MonoBehaviour
         foreach(char letter in sentences[index].ToCharArray())
         {
             textDisplay.text += letter;
+            SoundManager.instance.PlaySoundWithRandomPitch(voice);
             yield return new WaitForSeconds(typingSpeed);
         }
     }
@@ -40,6 +53,7 @@ public class Dialogue : MonoBehaviour
     public void NextSentence() {
 
         continuePrompt.enabled = false;
+        continuePromptPanel.SetActive(false);
 
         if(index < sentences.Length - 1)
         {
@@ -51,6 +65,8 @@ public class Dialogue : MonoBehaviour
         {
             textDisplay.text = "";
             textDisplay.enabled = false;
+            textDisplayPanel.SetActive(false);
+            hasRead = true;
         }
     }
 }
