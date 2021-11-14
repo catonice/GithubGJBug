@@ -27,6 +27,13 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(Type());
     }
 
+    public void StopDialog()
+    {
+        textDisplay.text = "";
+        textDisplayPanel.SetActive(false);
+        StopCoroutine(Type());
+    }
+
     void Update()
     {
         if (textDisplay.text == sentences[index])

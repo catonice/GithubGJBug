@@ -14,4 +14,14 @@ public class CollisionDetector : MonoBehaviour
             dialogueBox.StartDialog();
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        print(collision.tag);
+
+        if (collision.tag == "Player" && dialogueBox.hasRead == false)
+        {
+            dialogueBox.StopDialog();
+        }
+    }
 }
