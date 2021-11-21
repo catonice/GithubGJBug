@@ -27,4 +27,8 @@ public class TriggerCameraShake : MonoBehaviour
     void ShakeCameraForDamage() {
         StartCoroutine(cameraShake.Shake(0.15f, 0.4f));
     }
+
+    void ShakeCameraForEgg() {
+        StartCoroutine(cameraShake.Shake(0.05f, 0.1f));
+    }
 }
