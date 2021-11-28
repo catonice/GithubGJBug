@@ -19,9 +19,9 @@ TagManager:
   - Ground
   - PatrolGround
   - Player
-  - 
-  - 
-  - 
+  - Grate
+  - Enemy
+  - DeadPlayer
   - 
   - 
   - 

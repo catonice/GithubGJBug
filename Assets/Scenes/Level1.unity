@@ -563,5 +563,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7742469863805987380, guid: 3bf378b84b8256a409d3ac2145c383fb, type: 3}
+      propertyPath: fsm.events.Array.data[0].isGlobal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742469863805987380, guid: 3bf378b84b8256a409d3ac2145c383fb, type: 3}
+      propertyPath: fsm.states.Array.data[0].transitions.Array.data[0].fsmEvent.isGlobal
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bf378b84b8256a409d3ac2145c383fb, type: 3}
