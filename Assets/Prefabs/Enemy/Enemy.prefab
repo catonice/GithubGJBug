@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1924814873983229533}
   - component: {fileID: 1924814873983229532}
   - component: {fileID: 1924814873983229534}
+  - component: {fileID: 2229557902376872231}
   m_Layer: 10
   m_Name: rArm
   m_TagString: Untagged
@@ -109,6 +110,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6246706, y: 0.24860714}
   m_EdgeRadius: 0
+--- !u!114 &2229557902376872231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924814873983229531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -501658088, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFSMs: []
 --- !u!1 &1924814874532663127
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +338,7 @@ GameObject:
   - component: {fileID: 1924814875793012394}
   - component: {fileID: 1924814875793012395}
   - component: {fileID: 1924814875793012397}
+  - component: {fileID: 8565043402919955366}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -1730,7 +1745,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -1766,7 +1781,7 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!114 &1924814875793012393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,7 +2200,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -2221,7 +2236,7 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!114 &1924814875793012394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2622,7 +2637,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -2658,7 +2673,7 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!114 &1924814875793012395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3361,6 +3376,7 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.EnableFSM
         - HutongGames.PlayMaker.Actions.EnableFSM
         - HutongGames.PlayMaker.Actions.EnableFSM
+        - HutongGames.PlayMaker.Actions.SendEvent
         customNames:
         - 
         - 
@@ -3370,10 +3386,11 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 0101010101010101
-        actionIsOpen: 0101010101010101
-        actionStartIndex: 000000000200000004000000090000000e00000012000000160000001a000000
-        actionHashCodes: 9bd6f8015ac8520473b3190381294e045e69bb0487aa970087aa970087aa9700
+        - 
+        actionEnabled: 010101010101010101
+        actionIsOpen: 010101010101010101
+        actionStartIndex: 000000000200000004000000090000000e00000012000000160000001a0000001e000000
+        actionHashCodes: 9bd6f8015ac8520473b3190381294e045e69bb0487aa970087aa970087aa97005e69bb04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -3441,6 +3458,38 @@ MonoBehaviour:
             ownerOption: 1
             gameObject:
               useVariable: 0
+              name: 
+              tooltip: 
+              showInInspector: 0
+              networkSync: 0
+              value: {fileID: 0}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: Feed
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
+        - target: 2
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
               name: 
               tooltip: 
               showInInspector: 0
@@ -3644,6 +3693,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmIntParams: []
         fsmBoolParams:
         - useVariable: 0
@@ -3720,12 +3775,13 @@ MonoBehaviour:
         stringParams:
         - 
         - ENEMYDIED
-        byteData: 0000
+        - ENEMYDIED
+        byteData: 000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000024000000010000001400000011000000110000001100000011000000140000000f0000001800000011000000170000001f000000170000000f00000001000000140000001200000011000000110000001400000012000000110000001100000014000000120000001100000011000000
+        paramDataType: 140000001200000024000000010000001400000011000000110000001100000011000000140000000f0000001800000011000000170000001f000000170000000f000000010000001400000012000000110000001100000014000000120000001100000011000000140000001200000011000000110000001f000000170000000f00000001000000
         paramName:
         - gameObject
         - trigger
@@ -3757,8 +3813,12 @@ MonoBehaviour:
         - fsmName
         - enable
         - resetOnExit
-        paramDataPos: 00000000000000000000000000000000010000000000000001000000020000000300000002000000000000000000000004000000000000000000000001000000010000000100000003000000010000000500000006000000040000000200000007000000080000000500000003000000090000000a000000
-        paramByteDataSize: 000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        paramDataPos: 00000000000000000000000000000000010000000000000001000000020000000300000002000000000000000000000004000000000000000000000001000000010000000100000003000000010000000500000006000000040000000200000007000000080000000500000003000000090000000a00000001000000020000000200000002000000
+        paramByteDataSize: 00000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -3841,7 +3901,7 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!82 &1924814875793012397
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3938,6 +3998,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8565043402919955366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924814875793012387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -967985445, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFSMs:
+  - {fileID: 1924814875793012395}
 --- !u!1001 &8252182653756988735
 PrefabInstance:
   m_ObjectHideFlags: 0
