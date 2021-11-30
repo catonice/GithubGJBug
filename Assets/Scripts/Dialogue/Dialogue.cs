@@ -15,6 +15,9 @@ public class Dialogue : MonoBehaviour
     public AudioClip voice;
     public GameObject player;
 
+    public float fromPitch = 0.9f; 
+    public float toPitch = 1f; 
+
     public bool hasRead = false;
 
     private void Start()
@@ -52,7 +55,7 @@ public class Dialogue : MonoBehaviour
         foreach(char letter in sentences[index].ToCharArray())
         {
             textDisplay.text += letter;
-            SoundManager.instance.PlaySoundWithRandomPitch(voice);
+            SoundManager.instance.PlaySoundWithRandomPitch(voice, fromPitch, toPitch);
             yield return new WaitForSeconds(typingSpeed);
         }
     }
