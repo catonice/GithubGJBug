@@ -13,12 +13,12 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI continuePrompt;
     public GameObject continuePromptPanel;
     public AudioClip voice;
-    public GameObject player;
 
     public float fromPitch = 0.9f; 
     public float toPitch = 1f; 
 
     public bool hasRead = false;
+    public bool leftZone = false;
 
     private void Start()
     {
@@ -26,12 +26,18 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialog()
     {
+        if (leftZone)
+        {
+            textDisplay.text = "";
+            leftZone = false;
+        }
         textDisplayPanel.SetActive(true);
         StartCoroutine(Type());
     }
 
     public void StopDialog()
     {
+        leftZone = true;
         textDisplay.text = "";
         textDisplayPanel.SetActive(false);
         StopCoroutine(Type());

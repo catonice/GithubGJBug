@@ -7,7 +7,7 @@ public class CollisionDetector : MonoBehaviour
     public Dialogue dialogueBox;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.tag);
+        //print(collision.tag);
 
         if(collision.tag == "Player" && dialogueBox.hasRead == false)
         {
@@ -17,7 +17,7 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print(collision.tag);
+        //print(collision.tag);
 
         if (collision.tag == "Player" && dialogueBox.hasRead == false)
         {
