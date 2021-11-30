@@ -18,7 +18,6 @@ public class Dialogue : MonoBehaviour
     public float toPitch = 1f; 
 
     public bool hasRead = false;
-    public bool leftZone = false;
 
     private void Start()
     {
@@ -26,21 +25,16 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialog()
     {
-        if (leftZone)
-        {
-            textDisplay.text = "";
-            leftZone = false;
-        }
+        textDisplay.text = "";
         textDisplayPanel.SetActive(true);
         StartCoroutine(Type());
     }
 
     public void StopDialog()
     {
-        leftZone = true;
+        StopCoroutine(Type());
         textDisplay.text = "";
         textDisplayPanel.SetActive(false);
-        StopCoroutine(Type());
     }
 
     void Update()

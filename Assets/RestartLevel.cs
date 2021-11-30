@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RestartLevel : MonoBehaviour
 {
+    public string action = "Restart";
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +16,15 @@ public class RestartLevel : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
-        { 
-            SceneManager.LoadScene("PPLevel1"); //Load scene called Game
+        {
+            if (action == "Restart")
+            {
+                SceneManager.LoadScene("PPLevel1"); //Load scene called Game
+            }
+            else if(action == "Quit")
+            {
+                Application.Quit();
+            }
         }
     }
 }
